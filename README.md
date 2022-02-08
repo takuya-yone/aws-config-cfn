@@ -20,11 +20,18 @@ aws organizations list-delegated-services-for-account --account-id [Account Id] 
 
 ### creagte aggregator on [Account Id] 
 
-### create stack
+
+### deploy custom conformance pack
 ```Bash
-aws cloudformation create-stack --stack-name config-purpose-tag --template-body file://purpose-tag-rule.yml
-aws cloudformation create-stack --stack-name config-name-tag --template-body file://name-tag-rule.yml
+ aws configservice put-organization-conformance-pack --organization-conformance-pack-name sample-confp1 --template-body file://custom-conformance-pack.yml
 ```
+
+### delete custom conformance pack
+```Bash
+aws configservice delete-organization-conformance-pack --organization-conformance-pack-name [name]
+```
+
+
 
 # Ref
 - https://docs.aws.amazon.com/ja_jp/config/latest/developerguide/aggregate-data.html
