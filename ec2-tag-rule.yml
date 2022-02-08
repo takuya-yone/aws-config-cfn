@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+
+  OrgConfigRulePurposeTag:
+    Type: AWS::Config::OrganizationConfigRule
+    Properties:
+      OrganizationConfigRuleName: "required-purpose-tag"
+      OrganizationManagedRuleMetadata: 
+        Description: "use REQUIRED_TAGS"
+        InputParameters: '{"tag1Key":"Purpose"}'
+        # MaximumExecutionFrequency: Strinxg
+        ResourceTypesScope: 
+          - AWS::EC2::Instance
+        RuleIdentifier: REQUIRED_TAGS
+
+
+
+
+
+
+
+
+  # OrgManagedRuleMetaData:
+  #   Type: AWS::Config::OrganizationManagedRuleMetadata
+  #   Properties:
+  #     Description: "use REQUIRED_TAGS"
+  #     InputParameters: '{"tag1Key":"SAMPLEKEY"}'
+  #     MaximumExecutionFrequency: String
+  #     ResourceTypesScope: 
+  #       - AWS::EC2::Instance
+  #     RuleIdentifier: REQUIRED_TAGS
+
+
+      # TagKeyScope: String
+      # TagValueScope: String
+
+# ConfigRules:
+# - ConfigRuleArn: arn:aws:config:ap-northeast-1:974310065491:config-rule/aws-service-rule/config-multiaccountsetup.amazonaws.com/config-rule-dcnr1c
+#   ConfigRuleId: config-rule-dcnr1c
+#   ConfigRuleName: OrgConfigRule-org-guardduty-enabled-centralized-dtp8pxla
+#   ConfigRuleState: ACTIVE
+#   CreatedBy: config-multiaccountsetup.amazonaws.com
+#   Description: org gd 2230
+#   Scope: {}
+#   Source:
+#     Owner: AWS
+#     SourceIdentifier: GUARDDUTY_ENABLED_CENTRALIZED
+# - ConfigRuleArn: arn:aws:config:ap-northeast-1:974310065491:config-rule/config-rule-6pcjza
+#   ConfigRuleId: config-rule-6pcjza
+#   ConfigRuleName: required-tags
+#   ConfigRuleState: ACTIVE
+#   Description: Checks whether your resources have the tags that you specify.
+#   InputParameters: '{"tag1Key":"SAMPLEKEY"}'
+#   Scope:
+#     ComplianceResourceTypes:
+#     - AWS::EC2::Instance
+#   Source:
+#     Owner: AWS
+#     SourceIdentifier: REQUIRED_TAGS
