@@ -20,7 +20,11 @@ aws organizations list-delegated-services-for-account --account-id [Account Id] 
 
 ### creagte aggregator on [Account Id] 
 
-### 
+### create stack
+```Bash
+aws cloudformation create-stack --stack-name config-purpose-tag --template-body file://purpose-tag-rule.yml
+aws cloudformation create-stack --stack-name config-name-tag --template-body file://name-tag-rule.yml
+```
 
 # Ref
 - https://docs.aws.amazon.com/ja_jp/config/latest/developerguide/aggregate-data.html
